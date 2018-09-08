@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="translate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите слово для перевода" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxm-PI-SFD">
+                                <rect key="frame" x="16" y="36" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Слово -&gt; Перевод" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wfS-xd-RlM">
+                                <rect key="frame" x="16" y="161" width="343" height="490"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoq-0x-LSe">
+                                <rect key="frame" x="16" y="101" width="160" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="SbG-q7-67v"/>
+                                    <constraint firstAttribute="width" constant="160" id="eAW-Ng-P7U"/>
+                                    <constraint firstAttribute="height" constant="52" id="muD-YD-eWx"/>
+                                </constraints>
+                                <state key="normal" title="ENG"/>
+                                <connections>
+                                    <action selector="sendTranslateENG:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddD-m2-Qk5"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8F-4N-GSD">
+                                <rect key="frame" x="16" y="63" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCK-3c-XkG">
+                                <rect key="frame" x="199" y="101" width="160" height="52"/>
+                                <state key="normal" title="RU"/>
+                                <connections>
+                                    <action selector="sendTranslateRU:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qRr-3e-ePu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c8F-4N-GSD" secondAttribute="trailing" constant="16" id="0aR-1E-W2v"/>
+                            <constraint firstItem="xoq-0x-LSe" firstAttribute="top" secondItem="c8F-4N-GSD" secondAttribute="bottom" constant="8" id="0nk-ee-MQt"/>
+                            <constraint firstItem="xoq-0x-LSe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1Re-wv-Dyj"/>
+                            <constraint firstItem="uxm-PI-SFD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="8aJ-Cd-K9G"/>
+                            <constraint firstItem="c8F-4N-GSD" firstAttribute="top" secondItem="uxm-PI-SFD" secondAttribute="bottom" constant="6" id="AE6-jI-j44"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sCK-3c-XkG" secondAttribute="trailing" constant="16" id="Aiw-aj-Hg7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wfS-xd-RlM" secondAttribute="trailing" constant="16" id="DUy-W6-h9t"/>
+                            <constraint firstItem="wfS-xd-RlM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JZG-I5-XrU"/>
+                            <constraint firstItem="sCK-3c-XkG" firstAttribute="top" secondItem="c8F-4N-GSD" secondAttribute="bottom" constant="8" id="MO0-ca-H0G"/>
+                            <constraint firstItem="sCK-3c-XkG" firstAttribute="width" secondItem="xoq-0x-LSe" secondAttribute="width" id="VHk-rC-3mm"/>
+                            <constraint firstItem="sCK-3c-XkG" firstAttribute="height" secondItem="xoq-0x-LSe" secondAttribute="height" id="dH1-qx-Kma"/>
+                            <constraint firstItem="c8F-4N-GSD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fgW-9r-VVD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wfS-xd-RlM" secondAttribute="bottom" constant="16" id="hZj-wi-yX7"/>
+                            <constraint firstItem="wfS-xd-RlM" firstAttribute="top" secondItem="xoq-0x-LSe" secondAttribute="bottom" constant="8" id="oVg-aj-Ohr"/>
+                            <constraint firstItem="uxm-PI-SFD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="olE-uY-EaO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uxm-PI-SFD" secondAttribute="trailing" constant="16" id="yjs-Wu-w8N"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputWord" destination="c8F-4N-GSD" id="KhP-cd-0bf"/>
+                        <outlet property="outputWords" destination="wfS-xd-RlM" id="Sh8-GO-HX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.19999999999999" y="131.78410794602701"/>
+        </scene>
+    </scenes>
+</document>
