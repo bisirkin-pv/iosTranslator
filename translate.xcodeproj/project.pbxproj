@@ -12,6 +12,8 @@
 		3A5B05C1214405F800EC8727 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B05BF214405F800EC8727 /* Main.storyboard */; };
 		3A5B05C3214405F800EC8727 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B05C2214405F800EC8727 /* Assets.xcassets */; };
 		3A5B05C6214405F800EC8727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5B05C4214405F800EC8727 /* LaunchScreen.storyboard */; };
+		3AD17FD721456D93002070B1 /* Regexp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD17FD621456D93002070B1 /* Regexp.swift */; };
+		3AD17FDC214576AA002070B1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD17FDB214576AA002070B1 /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3A5B05C2214405F800EC8727 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A5B05C5214405F800EC8727 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A5B05C7214405F800EC8727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AD17FD621456D93002070B1 /* Regexp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Regexp.swift; sourceTree = "<group>"; };
+		3AD17FDB214576AA002070B1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		3A5B05BA214405F800EC8727 /* translate */ = {
 			isa = PBXGroup;
 			children = (
+				3AD17FD821457262002070B1 /* libs */,
 				3A5B05BB214405F800EC8727 /* AppDelegate.swift */,
 				3A5B05BD214405F800EC8727 /* ViewController.swift */,
 				3A5B05BF214405F800EC8727 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				3A5B05C7214405F800EC8727 /* Info.plist */,
 			);
 			path = translate;
+			sourceTree = "<group>";
+		};
+		3AD17FD821457262002070B1 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				3AD17FD621456D93002070B1 /* Regexp.swift */,
+				3AD17FDB214576AA002070B1 /* Network.swift */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,7 +105,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Pavel Driver";
 				TargetAttributes = {
 					3A5B05B7214405F800EC8727 = {
@@ -138,6 +152,8 @@
 			files = (
 				3A5B05BE214405F800EC8727 /* ViewController.swift in Sources */,
 				3A5B05BC214405F800EC8727 /* AppDelegate.swift in Sources */,
+				3AD17FDC214576AA002070B1 /* Network.swift in Sources */,
+				3AD17FD721456D93002070B1 /* Regexp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +193,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -184,6 +201,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -211,7 +229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -234,6 +252,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -241,6 +260,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -262,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -278,10 +298,10 @@
 				DEVELOPMENT_TEAM = JZG5JMM5S8;
 				INFOPLIST_FILE = translate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bisirkin.translate;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.bisirkin.translate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -293,10 +313,10 @@
 				DEVELOPMENT_TEAM = JZG5JMM5S8;
 				INFOPLIST_FILE = translate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bisirkin.translate;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.bisirkin.translate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
