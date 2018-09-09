@@ -1,4 +1,4 @@
-# iosTranslator
+# iosTranslator v1.2
 Приложение для перевода слов.
 
- Для перевода использется [API](https://github.com/ezhov-da/translator)
+> Для перевода используется [API](https://github.com/ezhov-da/translator)
