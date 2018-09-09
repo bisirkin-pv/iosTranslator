@@ -8,13 +8,42 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     let translateServer = "https://prog-tools.ru:8445/translator/rest/translate/v1"
     
+    struct Translate: Codable {
+        var from: String
+        var to: String
+        var was: String
+        var has: String
+    }
+    var arrayWords: [Translate] = []
+    
+    @IBOutlet weak var tbTableList: UITableView!
     @IBOutlet weak var inputWord: UITextField!
-    @IBOutlet weak var outputWords: UITextView!
+    
+    override func viewDidLoad() {
+        tbTableList.dataSource = self
+        tbTableList.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return arrayWords.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listWord")
+        let wordLine = cell?.contentView.viewWithTag(101) as! UILabel
+        let translate = arrayWords[indexPath.row]
+        let outText = "\(translate.from)\(translate.was) -> \(translate.to) \(translate.has)"
+        wordLine.text = outText
+        return cell!
+    }
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+    }
+    //@IBOutlet weak var outputWords: UITextView!
     @IBAction func send(_ sender: UIButton) {
-        print("yes")
         if inputWord!.text! == ""{
             return
         }
@@ -30,11 +59,12 @@ class ViewController: UIViewController {
             
             if let text = responseObject["text"] as? String {
                 DispatchQueue.main.async {
-                    let strFrom = lang == "en-ru" ? "(ENG) " : "(RU) "
-                    let strTo = lang == "en-ru" ? "(RU)  " : "(ENG) "
-                    let outText = strFrom + "\(self.inputWord!.text!) -> " + strTo + " \(text)"
-                    self.outputWords!.text = self.outputWords!.text + "\n" + outText
+                    let strFrom = lang == "en-ru" ? "🇺🇸 " : "🇷🇺"
+                    let strTo = lang == "en-ru" ? "🇷🇺" : "🇺🇸"
+                    let translate = Translate(from: strFrom, to: strTo, was: self.inputWord!.text!, has: text)
+                    self.arrayWords.append(translate)
                     self.inputWord!.text?.removeAll()
+                    self.tbTableList.reloadData()
                 }
             }
         }

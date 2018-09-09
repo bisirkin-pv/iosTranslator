@@ -24,12 +24,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Слово -&gt; Перевод" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wfS-xd-RlM">
-                                <rect key="frame" x="16" y="147" width="343" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c8F-4N-GSD">
                                 <rect key="frame" x="16" y="63" width="343" height="30"/>
                                 <nil key="textColor"/>
@@ -43,29 +37,62 @@
                                     <action selector="send:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ISl-jG-x4F"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WPO-Ov-3MY">
+                                <rect key="frame" x="0.0" y="141" width="375" height="526"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="listWord" id="GHN-Dm-uD4">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GHN-Dm-uD4" id="nia-Wl-Q1X">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrk-Q0-2GT">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="79.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yrk-Q0-2GT" firstAttribute="leading" secondItem="nia-Wl-Q1X" secondAttribute="leading" constant="16" id="dTC-Pl-t82"/>
+                                                <constraint firstAttribute="bottom" secondItem="yrk-Q0-2GT" secondAttribute="bottom" id="fAT-db-g78"/>
+                                                <constraint firstItem="yrk-Q0-2GT" firstAttribute="top" secondItem="nia-Wl-Q1X" secondAttribute="top" id="hzR-f4-dIv"/>
+                                                <constraint firstAttribute="trailing" secondItem="yrk-Q0-2GT" secondAttribute="trailing" constant="16" id="i5A-A5-9Fq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c8F-4N-GSD" secondAttribute="trailing" constant="16" id="0aR-1E-W2v"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wfS-xd-RlM" secondAttribute="bottom" constant="16" id="5PP-d5-rFu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WPO-Ov-3MY" secondAttribute="trailing" constant="16" id="4PD-t3-eZZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WPO-Ov-3MY" secondAttribute="bottom" id="8Lc-rJ-eqr"/>
                             <constraint firstItem="uxm-PI-SFD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="8aJ-Cd-K9G"/>
                             <constraint firstItem="c8F-4N-GSD" firstAttribute="top" secondItem="uxm-PI-SFD" secondAttribute="bottom" constant="6" id="AE6-jI-j44"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sCK-3c-XkG" secondAttribute="trailing" constant="16" id="Aiw-aj-Hg7"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wfS-xd-RlM" secondAttribute="trailing" constant="16" id="DUy-W6-h9t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WPO-Ov-3MY" secondAttribute="bottom" constant="16" id="Cn4-eD-aFH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WPO-Ov-3MY" secondAttribute="bottom" constant="16" id="DuU-Qn-fvz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WPO-Ov-3MY" secondAttribute="trailing" constant="16" id="KgU-zd-B0g"/>
                             <constraint firstItem="sCK-3c-XkG" firstAttribute="top" secondItem="c8F-4N-GSD" secondAttribute="bottom" constant="8" id="MO0-ca-H0G"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wfS-xd-RlM" secondAttribute="trailing" constant="16" id="NKH-b1-CfF"/>
-                            <constraint firstItem="wfS-xd-RlM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nr2-aq-tnG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WPO-Ov-3MY" secondAttribute="trailing" id="PPq-EI-gVP"/>
                             <constraint firstItem="sCK-3c-XkG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dIG-cT-SMy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WPO-Ov-3MY" secondAttribute="trailing" id="dLt-31-qdd"/>
                             <constraint firstItem="c8F-4N-GSD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fgW-9r-VVD"/>
+                            <constraint firstItem="WPO-Ov-3MY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fsF-Jt-akA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WPO-Ov-3MY" secondAttribute="bottom" id="obv-Lt-utE"/>
                             <constraint firstItem="uxm-PI-SFD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="olE-uY-EaO"/>
-                            <constraint firstItem="wfS-xd-RlM" firstAttribute="top" secondItem="sCK-3c-XkG" secondAttribute="bottom" constant="16" id="wfI-Uo-IQP"/>
+                            <constraint firstItem="WPO-Ov-3MY" firstAttribute="top" secondItem="sCK-3c-XkG" secondAttribute="bottom" constant="10" id="pDf-0m-9Hi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uxm-PI-SFD" secondAttribute="trailing" constant="16" id="yjs-Wu-w8N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="inputWord" destination="c8F-4N-GSD" id="KhP-cd-0bf"/>
-                        <outlet property="outputWords" destination="wfS-xd-RlM" id="Sh8-GO-HX0"/>
+                        <outlet property="tbTableList" destination="WPO-Ov-3MY" id="Qph-b1-pYu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
