@@ -33,14 +33,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "listWord")
-        let wordLine = cell?.contentView.viewWithTag(101) as! UILabel
+        let wordWas = cell?.contentView.viewWithTag(101) as! UILabel
+        let wordHas = cell?.contentView.viewWithTag(102) as! UILabel
         let translate = arrayWords[indexPath.row]
-        let outText = "\(translate.from)\(translate.was) -> \(translate.to) \(translate.has)"
-        wordLine.text = outText
+        wordHas.text = "\(translate.to): \(translate.has)"
+        wordWas.text = "\(translate.from): \(translate.was)"
         return cell!
     }
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+    }
+    
+    public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.arrayWords.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     //@IBOutlet weak var outputWords: UITextView!
     @IBAction func send(_ sender: UIButton) {
@@ -59,8 +67,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             if let text = responseObject["text"] as? String {
                 DispatchQueue.main.async {
-                    let strFrom = lang == "en-ru" ? "🇺🇸 " : "🇷🇺"
-                    let strTo = lang == "en-ru" ? "🇷🇺" : "🇺🇸"
+                    let strFrom = lang == "en-ru" ? "ENG" : "RU"
+                    let strTo = lang == "en-ru" ? "RU" : "ENG"
                     let translate = Translate(from: strFrom, to: strTo, was: self.inputWord!.text!, has: text)
                     self.arrayWords.append(translate)
                     self.inputWord!.text?.removeAll()
