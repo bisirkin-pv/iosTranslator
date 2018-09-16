@@ -8,29 +8,38 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     let translateServer = "https://prog-tools.ru:8445/translator/rest/translate/v1"
     
     struct Translate: Codable {
-        var from: String
-        var to: String
-        var was: String
-        var has: String
+        var from: String    //с какого языка переводим
+        var to: String      //на какой язык переводим
+        var was: String     //исходное слово
+        var has: String     //перевод
     }
     var arrayWords: [Translate] = []
     
     @IBOutlet weak var tbTableList: UITableView!
     @IBOutlet weak var inputWord: UITextField!
+    @IBOutlet var mainView: UIView!
     
     override func viewDidLoad() {
         tbTableList.dataSource = self
         tbTableList.delegate = self
+        inputWord.delegate = self
+        mainView.addTapGestureToHideKeyboard()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return arrayWords.count
     }
+    
+    //Отображение ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCell(withIdentifier: "listWord")
         let wordWas = cell?.contentView.viewWithTag(101) as! UILabel
@@ -40,18 +49,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         wordWas.text = "\(translate.from): \(translate.was)"
         return cell!
     }
+    
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
     }
     
+    //Удаляем запись в таблице по свайпу
     public func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             self.arrayWords.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    //@IBOutlet weak var outputWords: UITextView!
-    @IBAction func send(_ sender: UIButton) {
+    
+    //скрываем клавиатуру по нажатию  Return
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        sendResponse()
+        return true
+    }
+    
+    //Кнопка "Перевести"
+    @IBAction func send(_ sender: Any) {
+        sendResponse()
+    }
+    
+    //Функция получения перевода
+    func sendResponse(){
         if inputWord!.text! == ""{
             return
         }
@@ -76,6 +100,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+    }
+}
+
+extension UIView {
+    
+    func addTapGestureToHideKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        addGestureRecognizer(tapGesture)
+    }
+    
+    var topSuperview: UIView? {
+        var view = superview
+        while view?.superview != nil {
+            view = view!.superview
+        }
+        return view
+    }
+    
+    @objc func dismissKeyboard() {
+        topSuperview?.endEditing(true)
     }
 }
 

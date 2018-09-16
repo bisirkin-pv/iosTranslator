@@ -34,7 +34,7 @@
                                 <rect key="frame" x="16" y="101" width="343" height="30"/>
                                 <state key="normal" title="Перевод"/>
                                 <connections>
-                                    <action selector="send:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ISl-jG-x4F"/>
+                                    <action selector="send:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S1V-5r-FTY"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WPO-Ov-3MY">
@@ -106,6 +106,7 @@
                     </view>
                     <connections>
                         <outlet property="inputWord" destination="c8F-4N-GSD" id="KhP-cd-0bf"/>
+                        <outlet property="mainView" destination="8bC-Xf-vdC" id="lNV-de-tfQ"/>
                         <outlet property="tbTableList" destination="WPO-Ov-3MY" id="Qph-b1-pYu"/>
                     </connections>
                 </viewController>
